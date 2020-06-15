@@ -11,6 +11,7 @@ export default function NewTodo() {
     <div className="todo-input todo-list-item">
       <div className="contents">
         <input
+          autoFocus
           type="text"
           value={value}
           placeholder="+ Type here your todo"

@@ -9,10 +9,13 @@ export enum Actions {
   CREATE_TODO = "CREATE_TODO",
   DELETE_TODO = "DELETE_TODO",
   UPDATE_TODO = "UPDATE_TODO",
+
   SELECT = "SELECT",
 }
 
-// Interfaces
+// ------------------------
+// Action Interfaces
+
 export interface SelectTodo {
   type: typeof Actions.SELECT;
   payload: { todo: TodoModel | null };

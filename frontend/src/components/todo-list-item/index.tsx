@@ -5,8 +5,9 @@ import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import {
   selectTodo,
-  toogleTodoRequest,
+  toggleTodoRequest,
 } from "../../store/reducers/todos/actions";
+import Checkbox from "../inputs/checkbox";
 
 interface Props {
   todo: TodoModel;
@@ -20,13 +21,10 @@ const TodoListItem: React.FC<Props> = ({ todo }) => {
       <div className="contents">
         <p>{todo.title}</p>
         <p>{todo.dueDate?.format("MMM DD. HH:mm")}</p>
-        <input
-          type="checkbox"
-          checked={todo.isChecked}
-          onChange={() => {
-            dispatch(toogleTodoRequest(todo));
-          }}
-          onClick={(e) => e.stopPropagation()}
+        <Checkbox
+          onCheck={() => dispatch(toggleTodoRequest(todo))}
+          isChecked={todo.isChecked}
+          stopPropagation
         />
       </div>
 

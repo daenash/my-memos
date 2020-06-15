@@ -1,0 +1,21 @@
+@import "../../../styles/colors", "../../../styles/constraints";
+
+.checkbox {
+  position: relative;
+  cursor: pointer;
+
+  i {
+    transition: 0.2s;
+    color: #cfcfcf;
+    &:hover {
+      color: $green;
+    }
+
+    &.checked {
+      color: $green;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}

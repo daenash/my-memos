@@ -18,7 +18,9 @@ import {
   updateTodo as updateTodoGql,
 } from "../../../gql-client/todos";
 
+// -------------------------------
 // Actions declaration
+
 export const selectTodo = (todo: TodoModel | null): SelectTodo => ({
   type: Actions.SELECT,
   payload: { todo },
@@ -51,7 +53,12 @@ const updateTodo = (todo: TodoModel): UpdateTodo => ({
   payload: { todo },
 });
 
+// -------------------------------
 // Requests (thunks)
+
+/**
+ * Fetch todos
+ */
 export const fetchTodosRequest = (): ThunkAction<
   any,
   any,
@@ -68,6 +75,10 @@ export const fetchTodosRequest = (): ThunkAction<
   dispatch(fetchEnd());
 };
 
+/**
+ * Create todo
+ * @param title: The title of the new todo
+ */
 export const createTodoRequest = (
   title: string
 ): ThunkAction<any, any, any, Action> => async (dispatch) => {
@@ -81,6 +92,10 @@ export const createTodoRequest = (
   dispatch(fetchEnd());
 };
 
+/**
+ * Delete todo
+ * @param todo: The todo to delete
+ */
 export const deleteTodoRequest = (
   todo: TodoModel
 ): ThunkAction<any, any, any, Action> => async (dispatch) => {
@@ -94,7 +109,11 @@ export const deleteTodoRequest = (
   dispatch(fetchEnd());
 };
 
-export const toogleTodoRequest = (
+/**
+ * Toggle
+ * @param todo: The todo to delete
+ */
+export const toggleTodoRequest = (
   todo: TodoModel
 ): ThunkAction<any, any, any, Action> => async (dispatch) => {
   try {
