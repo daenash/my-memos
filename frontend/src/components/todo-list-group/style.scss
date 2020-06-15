@@ -1,0 +1,16 @@
+@import "../../styles/colors", "../../styles/constraints";
+
+.todo-list-group {
+  width: 100%;
+
+  h2 {
+    font-weight: 600;
+  }
+
+  .todos {
+    margin-top: $unit-s;
+    .todo-list-item {
+      margin-bottom: $unit-xs;
+    }
+  }
+}

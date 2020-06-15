@@ -1,0 +1,9 @@
+@import "../../styles/colors", "../../styles/constraints";
+
+#app-header {
+  h1 {
+    font-size: $font-xl;
+    margin-bottom: $unit-xl;
+    font-weight: 600;
+  }
+}

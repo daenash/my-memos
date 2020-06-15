@@ -1,0 +1,12 @@
+@import "../../styles/colors", "../../styles/constraints";
+
+.todos-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $unit-l;
+
+  .todo-list-group,
+  .todo-input {
+    margin-bottom: $unit-m;
+  }
+}

@@ -1,0 +1,7 @@
+@import "../../../styles/colors", "../../../styles/constraints";
+
+.todo-list-item-loading {
+  height: $unit-base * 5;
+  background: $background-gray;
+  @include loading-left-to-right;
+}

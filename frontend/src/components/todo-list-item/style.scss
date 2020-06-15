@@ -1,0 +1,37 @@
+@import "../../styles/colors", "../../styles/constraints";
+
+.todo-list-item {
+  width: 100%;
+  background: $background-gray;
+  border-radius: 4px;
+  font-size: $font-xs;
+  position: relative;
+  overflow: hidden;
+
+  .contents {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .left-border {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: black;
+    width: 2px;
+    height: 100%;
+
+    &-green {
+      background: $green;
+    }
+
+    &-orange {
+      background: $yellow;
+    }
+
+    &-red {
+      background: $red;
+    }
+  }
+}

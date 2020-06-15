@@ -1,0 +1,13 @@
+@import "../../../styles/colors", "../../../styles/constraints";
+
+.todo-input {
+  input {
+    font-size: $font-xs;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    outline: none;
+    background: none;
+    width: 100%;
+  }
+}

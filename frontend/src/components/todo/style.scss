@@ -1,0 +1,14 @@
+@import "../../styles/colors", "../../styles/constraints";
+
+.todo-details {
+  position: fixed;
+  width: 400px;
+  min-height: 400px;
+  background: $background-gray;
+  border-radius: $unit-base;
+
+  .contents {
+    position: relative;
+    padding: $unit-s;
+  }
+}

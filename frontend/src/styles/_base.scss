@@ -1,0 +1,11 @@
+@import "reset", "colors", "constraints";
+
+body {
+  font-family: $font-family;
+  font-size: $font-xs;
+}
+
+#app {
+  width: 800px + $unit-xl;
+  margin: $unit-base * 10 auto $unit-base * 10;
+}

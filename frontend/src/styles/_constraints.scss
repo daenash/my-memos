@@ -1,0 +1,58 @@
+// ------------------------------------
+// margin-padding units
+
+$unit-base: 8px;
+
+$unit-xs: $unit-base * 1;
+$unit-s: $unit-base * 2;
+$unit-m: $unit-base * 3;
+$unit-l: $unit-base * 4;
+$unit-xl: $unit-base * 5;
+$unit-xxl: $unit-base * 6;
+
+// ------------------------------------
+// fonts
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+
+$font-family: "Open Sans", "sans";
+
+$font-xs: 9pt;
+$font-s: 12pt;
+$font-m: 16pt;
+$font-l: 24pt;
+$font-xl: 32pt;
+
+// ------------------------------------
+// animations
+
+@mixin loading-left-to-right {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      #0000000c 50%,
+      transparent 100%
+    );
+    animation: load-animation 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+}
+
+@keyframes load-animation {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100%;
+  }
+}

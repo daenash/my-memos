@@ -14,3 +14,18 @@ export class CreateTaskInput {
   @Field({ nullable: true })
   isChecked: boolean;
 }
+
+@InputType()
+export class EditTaskInput {
+  @Field({ nullable: true })
+  title?: string;
+
+  @Field({ nullable: true })
+  description?: string;
+
+  @Field({ nullable: true })
+  dueTo?: Date;
+
+  @Field({ nullable: true })
+  isChecked?: boolean;
+}

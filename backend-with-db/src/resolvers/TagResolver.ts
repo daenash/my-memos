@@ -1,6 +1,4 @@
 import { Resolver, Query, Arg, Mutation } from "type-graphql";
-import { Task } from "../models/Task";
-import { CreateTaskInput } from "../inputs/Task";
 import { Tag } from "../models/Tag";
 
 @Resolver()

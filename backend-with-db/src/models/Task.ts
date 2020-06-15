@@ -34,9 +34,11 @@ export class Task extends BaseEntity {
   @Column({ default: false })
   isChecked: boolean;
 
+  @Field(() => Date)
   @CreateDateColumn()
   createdAt: Date;
 
+  @Field(() => Date)
   @UpdateDateColumn()
   updatedAt: Date;
 
