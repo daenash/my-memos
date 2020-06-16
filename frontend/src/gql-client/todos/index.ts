@@ -14,6 +14,7 @@ type TodoResponse = {
   title: string;
   isChecked: boolean;
   createdAt: Date;
+  description?: string;
   dueTo?: Date;
 };
 
@@ -33,6 +34,7 @@ export const fetchTodos = async (): Promise<TodoModel[]> => {
           isChecked
           createdAt
           dueTo
+          description
         }
       }
     `,
@@ -50,6 +52,7 @@ export const createTodo = async (title: string): Promise<TodoModel> => {
           isChecked
           createdAt
           dueTo
+          description
         }
       }
     `,
@@ -83,6 +86,7 @@ export const updateTodo = async (
           isChecked
           createdAt
           dueTo
+          description
         }
       }
     `,

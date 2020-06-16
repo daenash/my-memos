@@ -15,7 +15,7 @@ const TodoListGroup: React.FC<Props> = ({ name, todos, isLoading }) => {
     <div className="todo-list-group">
       <h2>{name}</h2>
       <div className="todos">
-        {isLoading
+        {isLoading && todos?.length === 0
           ? Array(3)
               .fill(1)
               .map(() => <TodoListItemLoader />)

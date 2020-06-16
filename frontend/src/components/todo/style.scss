@@ -3,12 +3,44 @@
 .todo-details {
   position: fixed;
   width: 400px;
-  min-height: 400px;
   background: $background-gray;
   border-radius: $unit-base;
+  overflow: hidden;
 
   .contents {
     position: relative;
     padding: $unit-s;
+    .title {
+      font-size: $font-s;
+      font-weight: bold;
+      padding-bottom: $unit-s;
+      margin-bottom: $unit-s;
+      border-bottom: 1px dashed black;
+    }
+
+    .due-date {
+      padding-bottom: 8px;
+    }
+  }
+
+  .todo-status {
+    height: 8px;
+    width: 100%;
+    background: $gray;
+
+    &-checked {
+      background: $green;
+    }
+    &-warning {
+      color: white;
+      padding: 8px 16px;
+      height: auto;
+      &-orange {
+        background: $yellow;
+      }
+      &-red {
+        background: $red;
+      }
+    }
   }
 }

@@ -17,7 +17,10 @@ const TodoListItem: React.FC<Props> = ({ todo }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="todo-list-item" onClick={() => dispatch(selectTodo(todo))}>
+    <div
+      className="todo-list-item todo-list-item-hoverable"
+      onClick={() => dispatch(selectTodo(todo))}
+    >
       <div className="contents">
         <p>{todo.title}</p>
         <p>{todo.dueDate?.format("MMM DD. HH:mm")}</p>
@@ -28,17 +31,14 @@ const TodoListItem: React.FC<Props> = ({ todo }) => {
         />
       </div>
 
-      {todo.isChecked ? (
-        <div className="left-border left-border-green"></div>
-      ) : (
-        <div
-          className={classNames({
-            "left-border": todo.dueDate && todo.dueIn()! < 5,
-            "left-border-orange": todo.dueDate && todo.dueIn()! < 5,
-            "left-border-red": todo.dueDate && todo.dueIn()! < 2,
-          })}
-        ></div>
-      )}
+      <div
+        className={classNames({
+          "left-border": todo.isChecked || todo.isSoftWarning(),
+          "left-border-green": todo.isChecked,
+          "left-border-orange": todo.isSoftWarning(),
+          "left-border-red": todo.isHardWarning(),
+        })}
+      />
     </div>
   );
 };

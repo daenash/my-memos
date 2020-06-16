@@ -1,3 +1,5 @@
+// Imports for hooky implementation
+//
 // import gql from "graphql-tag";
 // import { useQuery } from "@apollo/react-hooks";
 // import TodoModel from "../../models/todo";
@@ -13,6 +15,9 @@ import { RootState } from "../../store/reducers";
 import { fetchTodosRequest } from "../../store/reducers/todos/actions";
 
 export default function TodosView() {
+  //
+  // Could have been solved with hooks too.
+  //
   // const GET_TASKS = gql`
   //   {
   //     tasks {
@@ -30,8 +35,10 @@ export default function TodosView() {
   //   error: errorTodos,
   //   data: { tasks } = { tasks: [] },
   // } = useQuery<{ tasks: TodoModel[] }, null>(GET_TASKS);
+
   const tasks = useSelector((store: RootState) => store.todos.todos);
   const task = useSelector((store: RootState) => store.todos.selectedTodo);
+  const isFetching = useSelector((store: RootState) => store.todos.isFetching);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,12 +55,12 @@ export default function TodosView() {
         <TodoListGroup
           name="Ongoing"
           todos={ongoingTodos}
-          isLoading={false}
+          isLoading={isFetching}
         ></TodoListGroup>
         <TodoListGroup
           name="Completed"
           todos={completedTodos}
-          isLoading={false}
+          isLoading={isFetching}
         ></TodoListGroup>
       </div>
       <div>

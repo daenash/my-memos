@@ -14,7 +14,7 @@ export default function NewTodo() {
           autoFocus
           type="text"
           value={value}
-          placeholder="+ Type here your todo"
+          placeholder="+ Type here your todo and press ENTER"
           onChange={(e) => setValue(e.target.value)}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
