@@ -7,7 +7,7 @@
     "start": "nodemon -w src --ext ts --exec ts-node src/index.ts"
   },
   "dependencies": {
-    "apollo-server": "^2.13.1",
+    "apollo-server": "^2.14.2",
     "apollo-server-express": "^2.13.1",
     "class-validator": "^0.12.2",
     "express": "^4.17.1",
