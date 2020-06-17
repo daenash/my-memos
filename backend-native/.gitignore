@@ -1,8 +1,0 @@
-# node modules folder
-node_modules
-
-# build folder
-build
-
-# DB instance
-db.sqlite
