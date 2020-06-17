@@ -38,7 +38,6 @@ export default function TodosView() {
 
   const tasks = useSelector((store: RootState) => store.todos.todos);
   const task = useSelector((store: RootState) => store.todos.selectedTodo);
-  const isFetching = useSelector((store: RootState) => store.todos.isFetching);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -52,16 +51,8 @@ export default function TodosView() {
     <div className="todos-view">
       <div>
         <NewTodo></NewTodo>
-        <TodoListGroup
-          name="Ongoing"
-          todos={ongoingTodos}
-          isLoading={isFetching}
-        ></TodoListGroup>
-        <TodoListGroup
-          name="Completed"
-          todos={completedTodos}
-          isLoading={isFetching}
-        ></TodoListGroup>
+        <TodoListGroup name="Ongoing" todos={ongoingTodos}></TodoListGroup>
+        <TodoListGroup name="Completed" todos={completedTodos}></TodoListGroup>
       </div>
       <div>
         <Todo todo={task}></Todo>

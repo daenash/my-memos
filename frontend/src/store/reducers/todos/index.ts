@@ -1,6 +1,5 @@
 import { TodosActionType, Actions } from "./types";
 import TodoModel from "../../../models/todo";
-import { stat } from "fs";
 
 export type TodosState = Readonly<{
   isFetching: Boolean;

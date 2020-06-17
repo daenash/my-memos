@@ -3,11 +3,8 @@ import TodoModel from "../../models/todo";
 import "./style.scss";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
-import {
-  selectTodo,
-  toggleTodoRequest,
-} from "../../store/reducers/todos/actions";
-import Checkbox from "../inputs/checkbox";
+import { selectTodo } from "../../store/reducers/todos/actions";
+import TodoToggler from "../inputs/todo-toggler";
 
 interface Props {
   todo: TodoModel;
@@ -24,11 +21,7 @@ const TodoListItem: React.FC<Props> = ({ todo }) => {
       <div className="contents">
         <p>{todo.title}</p>
         <p>{todo.dueDate?.format("MMM DD. HH:mm")}</p>
-        <Checkbox
-          onCheck={() => dispatch(toggleTodoRequest(todo))}
-          isChecked={todo.isChecked}
-          stopPropagation
-        />
+        <TodoToggler todo={todo} />
       </div>
 
       <div

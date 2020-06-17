@@ -9,3 +9,60 @@ body {
   width: 800px + $unit-xl;
   margin: $unit-base * 10 auto $unit-base * 10;
 }
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.btn-text {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+  font-size: $font-xs;
+
+  &.icon-left {
+    i {
+      margin-right: $unit-base;
+    }
+  }
+
+  &.btn-danger {
+    color: $red;
+    &:hover {
+      color: $red-dark;
+    }
+  }
+}
+
+.btn-icon {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+  font-size: $font-xs;
+
+  &.icon-left {
+    i {
+      margin-right: $unit-base;
+    }
+  }
+
+  &.btn-danger {
+    color: $red;
+    &:hover {
+      color: $red-dark;
+    }
+  }
+
+  &.btn-success {
+    color: $green;
+    &:hover {
+      color: $green-dark;
+    }
+  }
+}

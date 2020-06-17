@@ -1,5 +1,4 @@
 import moment from "moment";
-import todos from "../store/reducers/todos";
 
 const SOFT_WARNING_DAYS = 5;
 const HARD_WARNING_DAYS = 2;
@@ -30,11 +29,11 @@ export default class TodoModel {
     this.description = data.description;
   }
 
-  dueIn = (): number | null => {
+  dueIn = (type: "day" | "seconds" = "day"): number | null => {
     if (!this.dueDate) return null;
 
     const numberOfDaysDueIn = this.dueDate
-      ? this.dueDate.diff(moment(), "day")
+      ? this.dueDate.diff(moment(), type)
       : -1;
     return numberOfDaysDueIn;
   };
@@ -54,16 +53,15 @@ export default class TodoModel {
   };
 
   warningMessage = (): string | null => {
-    if (this.dueIn() === null || this.isChecked) {
+    if (!this.dueDate || this.isChecked || this.dueIn()! >= SOFT_WARNING_DAYS) {
       return null;
     }
 
-    const dueDays = this.dueIn()! + 1;
-    if (dueDays > 0) {
-      return `due in less than ${dueDays} day(s)`;
+    if (this.dueIn()! >= 0) {
+      return `Due @ ${this.dueDate.format("YYYY MMM D. HH:mm:ss")}`;
     }
-    if (dueDays <= 0) {
-      return `overdue ${dueDays} day(s)`;
+    if (this.dueIn()! < 0) {
+      return `Overdue`;
     }
 
     return null;

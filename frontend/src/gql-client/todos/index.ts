@@ -2,14 +2,14 @@ import client from "..";
 import { gql } from "apollo-boost";
 import TodoModel from "../../models/todo";
 
-type TodoUpdateRequest = {
+export type TodoUpdateRequest = {
   title?: string;
-  description?: string;
+  description?: string | null;
   isChecked?: boolean;
-  dueTo?: Date;
+  dueTo?: Date | null;
 };
 
-type TodoResponse = {
+export type TodoResponse = {
   id: string;
   title: string;
   isChecked: boolean;

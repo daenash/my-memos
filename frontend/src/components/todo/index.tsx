@@ -4,6 +4,9 @@ import classNames from "classnames";
 import "./style.scss";
 import { useDispatch } from "react-redux";
 import { deleteTodoRequest } from "../../store/reducers/todos/actions";
+import TodoToggler from "../inputs/todo-toggler";
+import TodoDescription from "../inputs/todo-description";
+import TodoDueDate from "../inputs/todo-due-date";
 
 interface Props {
   todo?: TodoModel | null;
@@ -37,19 +40,25 @@ const Todo: React.FC<Props> = ({ todo }) => {
       <div className="contents">
         <h2 className="title">{todo.title}</h2>
 
-        <div className="due-date">
+        <div className="due-date flex">
           <p>Task due date:</p>
-          <p>
-            {todo.dueDate
-              ? todo.dueDate?.format("YYYY-MM-DD HH:mm:ss")
-              : "Set due date"}
-          </p>
+          <TodoDueDate todo={todo} />
         </div>
-        <div className="description">
-          <p>{todo.description}</p>
+
+        <div className="description flex">
+          <p>Description:</p>
+          <TodoDescription todo={todo} />
         </div>
-        <div className="footer">
-          <p onClick={() => dispatch(deleteTodoRequest(todo))}>Delete</p>
+
+        <div className="footer flex">
+          <button
+            className="btn-text btn-danger icon-left"
+            onClick={() => dispatch(deleteTodoRequest(todo))}
+          >
+            <i className="fa fa-trash" />
+            Delete
+          </button>
+          <TodoToggler todo={todo} />
         </div>
       </div>
     </div>

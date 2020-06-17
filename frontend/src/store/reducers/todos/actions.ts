@@ -16,6 +16,7 @@ import {
   createTodo as createTodoGql,
   deleteTodo as deleteTodoGql,
   updateTodo as updateTodoGql,
+  TodoUpdateRequest,
 } from "../../../gql-client/todos";
 
 // -------------------------------
@@ -121,6 +122,24 @@ export const toggleTodoRequest = (
     const resp = await updateTodoGql(todo.id.toString(), {
       isChecked: !todo.isChecked,
     });
+    dispatch(updateTodo(resp));
+  } catch (e) {
+    console.log(e);
+  }
+  dispatch(fetchEnd());
+};
+
+/**
+ * Update todo
+ * @param todo: The todo to delete
+ */
+export const updateTodoRequest = (
+  todo: TodoModel,
+  fieldsToUpdate: TodoUpdateRequest
+): ThunkAction<any, any, any, Action> => async (dispatch) => {
+  try {
+    dispatch(fetchStart());
+    const resp = await updateTodoGql(todo.id.toString(), fieldsToUpdate);
     dispatch(updateTodo(resp));
   } catch (e) {
     console.log(e);

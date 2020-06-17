@@ -69,8 +69,9 @@ export class TaskResolver {
     }
 
     if (data.title) taskToEdit.title = data.title;
-    if (data.dueTo) taskToEdit.dueTo = data.dueTo;
-    if (data.description) taskToEdit.description = data.description;
+    if (data.dueTo !== undefined) taskToEdit.dueTo = data.dueTo;
+    if (data.description !== undefined)
+      taskToEdit.description = data.description;
     if (data.isChecked !== undefined) taskToEdit.isChecked = data.isChecked;
     await taskToEdit.save();
     return taskToEdit;
